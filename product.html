@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rongila – Product</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--a:#f43f5e;--b:#f59e0b;--ink:#1e1233}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{min-height:100svh;color:#fff;font:400 16px/1.5 Figtree,'Kohinoor Bangla','Hind Siliguri',system-ui,sans-serif;text-shadow:0 1px 8px rgba(0,0,0,.2);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(160deg,var(--a),var(--b))}
+h1,h2,.price{font-family:'Bricolage Grotesque','Hind Siliguri',sans-serif;letter-spacing:-.02em}
+button,a{font:inherit;color:inherit;text-decoration:none;cursor:pointer}
+:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.glass{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.38);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.tb{position:fixed;left:0;right:0;top:0;z-index:10;display:flex;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top,0px)) 16px 0;pointer-events:none}
+.tn{align-self:center;flex:0 1 auto;min-width:0;max-width:calc(100% - 120px);margin:0 10px;padding:9px 18px;border-radius:99px;font:700 17px/1.2 'Bricolage Grotesque','Hind Siliguri',sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(14px);transition:opacity .3s,transform .3s}
+.tn.on{opacity:1;transform:none}
+.ib{pointer-events:auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;text-shadow:none}
+.ib svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s}
+#fav.on svg{fill:#fff;transform:scale(1.15)}
+.main{max-width:520px;margin:0 auto;display:flex;flex-direction:column;align-items:center;padding:calc(70px + env(safe-area-inset-top,0px)) 20px 0;text-align:center}
+.screen{position:relative;width:min(80vw,330px);aspect-ratio:3/4;border-radius:30px;overflow:hidden;background:rgba(20,10,40,.2);border:1px solid rgba(255,255,255,.3);box-shadow:0 40px 60px -28px rgba(20,10,40,.65),inset 0 0 0 1px rgba(255,255,255,.08);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.sl{flex:0 0 100%;height:100%;scroll-snap-align:center;display:grid;place-items:center}
+.sl.png img,.sl.png svg{width:76%;height:76%;object-fit:contain;filter:drop-shadow(0 22px 16px rgba(20,10,40,.4))}
+.sl.ph img{width:100%;height:100%;object-fit:cover;border-radius:30px}
+.dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px}
+.dots i{width:7px;height:7px;border-radius:99px;background:rgba(255,255,255,.5);transition:.25s}
+.dots i.on{width:22px;background:#fff}
+h1{font-size:clamp(28px,8vw,38px);font-weight:800;line-height:1.05;margin-bottom:12px}
+.det{max-width:34ch;margin-top:-6px;font-size:15px;opacity:.95;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.info{position:absolute;inset:0;z-index:3;padding:28px 22px;display:flex;flex-direction:column;justify-content:center;text-align:center;overflow-y:auto;background:rgba(20,10,40,.4);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);transform:translateX(102%);transition:transform .45s cubic-bezier(.2,.8,.3,1)}
+.info h2{font-size:28px;font-weight:800;line-height:1.1;margin-bottom:12px}
+.info p{font-size:15px;line-height:1.65}
+.screen.on .info{transform:none}.screen.on .dots{opacity:0}
+.more{margin:2px 0 16px;border:0;background:none;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.orow{width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:16px}
+.opt{text-align:left}.co-w{margin-left:auto;text-align:right}
+.opt b{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.chs{display:flex;gap:7px;flex-wrap:wrap}.co-w .chs{justify-content:flex-end}
+.sz{min-width:34px;height:30px;padding:0 9px;border-radius:10px;font-size:13px;color:#fff;font-weight:600;text-shadow:none}
+.sz.on{background:#fff;color:var(--ink);border-color:#fff}
+.co{width:24px;height:24px;border-radius:50%;border:2px solid rgba(255,255,255,.6);box-shadow:0 0 0 0 #fff;transition:.2s}
+.co.on{box-shadow:0 0 0 2px #fff;border-color:var(--ink)}
+.ship{position:relative;z-index:2;margin-top:6px;font-size:14px;font-weight:600}
+.pbox{position:relative;z-index:2;margin-top:30px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.price{font-size:38px;font-weight:800;text-shadow:0 2px 14px rgba(20,10,40,.45)}
+.old{opacity:.8;text-decoration:line-through;font-size:18px}
+.off{background:#fff;color:var(--ink);font-weight:700;font-size:13px;border-radius:99px;padding:3px 11px;text-shadow:none}
+.rel{max-width:520px;margin:0 auto;padding:70px 0 130px}
+.rel h2{font-size:26px;padding:0 20px 14px}
+.rrow{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 8px;scrollbar-width:none}
+.rrow::-webkit-scrollbar{display:none}
+.rc{flex:0 0 82%;scroll-snap-align:center;display:flex;align-items:center;gap:12px;padding:10px;border-radius:22px;background:rgba(20,10,40,.14)}
+.rc i{flex:none;width:96px;height:96px;border-radius:18px;display:grid;place-items:center;overflow:hidden}
+.rc i img,.rc i svg{width:80%;height:80%;object-fit:contain;filter:drop-shadow(0 8px 6px rgba(20,10,40,.35))}
+.rn{flex:1;min-width:0;border-radius:16px;padding:10px 12px;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.rn b{display:block;font:700 17px/1.2 'Bricolage Grotesque',sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rn span{font-weight:600}
+.empty{padding:0 20px}
+.buy{position:fixed;left:0;right:0;bottom:0;z-index:10;display:flex;justify-content:center;padding:14px 16px calc(14px + env(safe-area-inset-bottom,0px))}
+.buy button{width:100%;max-width:488px;border:0;border-radius:18px;padding:16px;background:var(--p,#6d28d9);color:#fff;font-weight:700;font-size:17px;text-shadow:none;box-shadow:0 16px 30px -12px var(--p,#6d28d9);transition:transform .15s}
+.buy button:active{transform:scale(.97)}
+#toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,10px);z-index:20;background:#fff;color:var(--ink);padding:10px 16px;border-radius:14px;font-weight:600;font-size:14px;text-shadow:none;opacity:0;pointer-events:none;transition:.3s;width:max-content;max-width:90vw}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="tb">
+ <a class="ib glass" id="back" href="index.html" aria-label="Back"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></a>
+ <span class="tn glass" id="tn" aria-hidden="true"></span>
+ <button class="ib glass" id="fav" aria-label="Save product" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg></button>
+</div>
+<main>
+ <section class="main">
+  <h1 id="name"></h1>
+  <p class="det" id="det"></p><button class="more" id="more">See more</button>
+  <div class="screen"><div class="track" id="track"></div><div class="dots" id="dots"></div><div class="info"><h2 id="iname"></h2><p id="idet"></p></div></div>
+  <div class="pbox"><span class="price" id="pr"></span><s class="old" id="old"></s><span class="off" id="off"></span></div>
+  <div class="ship" id="ship"></div>
+  <div class="orow">
+   <div class="opt" id="szw" hidden><b>Size</b><div class="chs" id="szs"></div></div>
+   <div class="opt co-w"><b>Colour</b><div class="chs" id="cos"></div></div>
+  </div>
+ </section>
+ <section class="rel" id="rel"><h2 id="rh"></h2><div class="rrow" id="rrow"></div></section>
+</main>
+<div class="buy"><button id="buy">Buy now</button></div>
+<div id="toast" role="status"></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+var SEED=[
+{n:'Silk scarf',c:'Fashion',p:1450,o:1800,a:'#f43f5e',b:'#f59e0b'},
+{n:'Leather tote',c:'Bags',p:3400,o:0,a:'#7c3aed',b:'#f472b6'},
+{n:'Ceramic vase',c:'Home',p:1800,o:2200,a:'#0ea5e9',b:'#a3e635'},
+{n:'Linen shirt',c:'Fashion',p:2200,o:0,a:'#6d28d9',b:'#38bdf8'},
+{n:'Scented candle',c:'Home',p:950,o:0,a:'#f59e0b',b:'#f43f5e'},
+{n:'Canvas backpack',c:'Bags',p:2600,o:3000,a:'#10b981',b:'#facc15'},
+{n:'Glass bottle',c:'Home',p:700,o:0,a:'#06b6d4',b:'#8b5cf6'},
+{n:'Beaded necklace',c:'Fashion',p:1250,o:0,a:'#ec4899',b:'#fb923c'}];
+var BAG='<svg viewBox="0 0 100 100" aria-hidden="true"><path d="M26 38h48l6 50H20z" fill="#fff"/><path d="M36 38c0-18 28-18 28 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg>';
+var list=SEED;
+try{var raw=localStorage.getItem('rongila-v2');if(raw){var j=JSON.parse(raw);if(j.products&&j.products.length)list=j.products;if(j.theme&&j.theme.primary)document.documentElement.style.setProperty('--p',j.theme.primary)}}catch(e){}
+function run(list){
+var q=new URLSearchParams(location.search).get('n'),qi=new URLSearchParams(location.search).get('id');
+var P=list.filter(function(p){return(qi&&p.id===qi)||(q&&p.n===q)})[0]||list[0];
+if(!P){$('name').textContent='Product not found';return}
+var money=function(v){return '৳'+v.toLocaleString('en-US')};
+var root=document.documentElement;
+root.style.setProperty('--a',P.a);root.style.setProperty('--b',P.b);
+document.title=P.n+' – Rongila';
+$('name').textContent=P.n;$('tn').textContent=P.n;
+window.addEventListener('scroll',function(){$('tn').classList.toggle('on',$('name').getBoundingClientRect().bottom<70)},{passive:true});
+var full=P.d||('Handpicked '+P.n.toLowerCase()+' in bright, lasting colours. Made for everyday use and easy to match with what you already own. Free delivery over ৳2,000, and 7 days to return it if it is not right.');
+$('det').textContent=full;$('iname').textContent=P.n;$('idet').textContent=full;
+$('more').onclick=function(){var o=document.querySelector('.screen').classList.toggle('on');this.textContent=o?'See less':'See more'};
+$('pr').textContent=money(P.p);$('ship').textContent=P.ship>0?'Delivery '+money(P.ship):(P.ship===0?'Free delivery':'');
+if(P.o>P.p){$('old').textContent=money(P.o);$('off').textContent='-'+Math.round((1-P.p/P.o)*100)+'%'}else{$('old').hidden=true;$('off').hidden=true}
+/* slides: first is the transparent PNG, the rest are full photos */
+var imgs=[P.img].concat(P.imgs||[]).filter(Boolean);if(!imgs.length)imgs=[null];
+var tr=$('track'),dt=$('dots');
+imgs.forEach(function(s,i){var d=el('div','sl '+(i?'ph':'png'));
+ if(i===0&&!s)d.insertAdjacentHTML('beforeend',BAG);else{var m=new Image();m.src=s;m.alt=P.n+' '+(i+1);d.appendChild(m)}
+ tr.appendChild(d);dt.appendChild(el('i',i?'':'on'))});
+tr.addEventListener('scroll',function(){var k=Math.round(tr.scrollLeft/tr.clientWidth);[].forEach.call(dt.children,function(x,i){x.classList.toggle('on',i===k)})},{passive:true});
+/* size + colour */
+var sizes=P.sizes||(P.c==='Fashion'?['S','M','L','XL']:null),cols=P.colors||[P.a,P.b,'#1e1233','#f5efff'];
+var pick={size:sizes?sizes[1]:'',color:cols[0]};
+if(sizes){$('szw').hidden=false;sizes.forEach(function(s){var b=el('button','sz glass'+(s===pick.size?' on':''),s);b.onclick=function(){pick.size=s;[].forEach.call($('szs').children,function(x){x.classList.toggle('on',x===b)})};$('szs').appendChild(b)})}
+cols.forEach(function(c,i){var b=el('button','co'+(i?'':' on'));b.style.background=c;b.setAttribute('aria-label','Colour '+(i+1));b.onclick=function(){pick.color=c;[].forEach.call($('cos').children,function(x){x.classList.toggle('on',x===b)})};$('cos').appendChild(b)});
+/* love button */
+function favs(){try{return JSON.parse(localStorage.getItem('rongila-fav'))||[]}catch(e){return []}}
+function paint(){var on=favs().indexOf(P.n)>-1;$('fav').classList.toggle('on',on);$('fav').setAttribute('aria-pressed',on)}
+$('fav').onclick=function(){var f=favs(),i=f.indexOf(P.n);if(i>-1)f.splice(i,1);else f.push(P.n);try{localStorage.setItem('rongila-fav',JSON.stringify(f))}catch(e){}paint();toast(i>-1?'Removed from saved':'Saved')};
+paint();
+/* same category, swipe left and right */
+var rel=list.filter(function(p){return p.c===P.c&&p.n!==P.n});
+$('rh').textContent='More in '+P.c;
+if(!rel.length){$('rrow').replaceWith(el('p','empty','No other products in this category yet.'))}
+rel.forEach(function(p){var a=el('a','rc'),i=el('i'),d=el('div','rn');a.href='product.html?'+(p.id?'id='+p.id:'n='+encodeURIComponent(p.n));
+ i.style.background='linear-gradient(160deg,'+p.a+','+p.b+')';if(p.img){var m=new Image();m.src=p.img;m.alt='';i.appendChild(m)}else i.insertAdjacentHTML('beforeend',BAG);
+ d.appendChild(el('b','',p.n));d.appendChild(el('span','',money(p.p)));a.appendChild(i);a.appendChild(d);$('rrow').appendChild(a)});
+/* buy */
+var tt;function toast(t){var e=$('toast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){e.classList.remove('on')},2200)}
+$('buy').onclick=function(){try{localStorage.setItem('rongila-buy',JSON.stringify({n:P.n,p:P.p,ship:P.ship||0,size:pick.size,color:pick.color}))}catch(e){}toast('Checkout is not set up yet. Your choice is saved.')};
+}
+var SBU='https://qerjmgywevjucgidahhm.supabase.co',SBK='sb_publishable_JCUW5NQaD6e_IgnH_HV39g_7YUXsksd';
+function sbGet(q){return fetch(SBU+'/rest/v1/'+q,{headers:{apikey:SBK,Authorization:'Bearer '+SBK}}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()})}
+function fromRow(r){return{id:r.id,n:r.name,c:r.category||'Other',d:r.details||'',a:r.color_a,b:r.color_b,img:r.image||undefined,imgs:r.images&&r.images.length?r.images:undefined,p:+r.price,o:+r.old_price||0,cost:+r.buy_price||undefined,ship:r.shipping==null?undefined:+r.shipping,t:r.trending?1:0,ht:r.hero_text||undefined,sizes:r.sizes||undefined,colors:r.colors||undefined}}
+Promise.all([sbGet('products?select=*&order=created_at.desc'),sbGet('settings?select=data&id=eq.site')]).then(function(x){var D=(x[1][0]||{}).data||{};if(D.theme&&D.theme.primary)document.documentElement.style.setProperty('--p',D.theme.primary);run(x[0].map(fromRow))}).catch(function(){run(list)});
+})();
+</script>
+</body>
+</html>
